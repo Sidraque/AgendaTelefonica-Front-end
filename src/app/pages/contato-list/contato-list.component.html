@@ -1,0 +1,29 @@
+<div class="contato-list-container">
+  <h2>Lista de Contatos</h2>
+  <button class="add-btn" (click)="addContato()">Adicionar Novo Contato</button>
+  <ul *ngIf="contatos.length; else noContacts">
+    <li *ngFor="let contato of contatos" class="contact-item" [class.favorited]="contato.contatoSnFavorito === 'S'">
+      <div class="contact-info">
+        <span class="contact-name" *ngIf="contato.contatoNome">👤 {{ contato.contatoNome }}</span>
+        <span class="contact-email" *ngIf="contato.contatoEmail">📧 {{ contato.contatoEmail }}</span>
+        <span class="contact-phone" *ngIf="contato.contatoCelular">📱 {{ contato.contatoCelular }}</span>
+      </div>
+      <div class="contact-actions">
+        <button class="btn" [class.disabled-btn]="contato.contatoSnAtivo === 'N'"
+          [disabled]="contato.contatoSnAtivo === 'N'" (click)="toggleFavorite(contato)">
+          {{ contato.contatoSnFavorito === 'S' ? '❎ Desfavoritar' : '✅ Favoritar' }}
+        </button>
+        <button class="btn" [class.disabled-btn]="contato.contatoSnAtivo === 'N'"
+          [disabled]="contato.contatoSnAtivo === 'N'" (click)="editContato(contato)">✏️ Editar</button>
+        <button class="btn" [class.disabled-btn]="contato.contatoSnAtivo === 'N'"
+          [disabled]="contato.contatoSnAtivo === 'N'" (click)="deleteContato(contato.contatoId)">🗑️ Excluir</button>
+        <button class="btn" (click)="toggleActive(contato)">
+          {{ contato.contatoSnAtivo === 'S' ? '🔴 Inativar' : '🟢 Ativar' }}
+        </button>
+      </div>
+    </li>
+  </ul>
+  <ng-template #noContacts>
+    <p class="no-contacts">Nenhum contato disponível. Por favor, adicione alguns contatos.</p>
+  </ng-template>
+</div>

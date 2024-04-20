@@ -1,0 +1,136 @@
+/* Aplicar a fonte Roboto e regras básicas */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contato-list-container {
+  background-color: #f4f4f9;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+h2 {
+  color: #5c677d;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  background-color: white;
+  padding: 15px;
+  margin: 10px 0;
+  margin-right: 40px;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
+}
+
+.contact-info {
+  flex-grow: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.contact-name,
+.contact-email,
+.contact-phone {
+  margin: 5px 0;
+}
+
+.add-btn {
+  display: block;
+  width: auto;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex-grow: 1;
+  min-width: 90px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.disabled-btn {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.no-contacts {
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .contact-item {
+    padding: 10px;
+  }
+
+  .contact-info {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,43 @@
+<form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-group">
+    <label for="contatoNome">Nome</label>
+    <input id="contatoNome" type="text" formControlName="contatoNome" required class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="contatoEmail">Email</label>
+    <input id="contatoEmail" type="email" formControlName="contatoEmail" class="form-control">
+    <div *ngIf="contatoForm.get('contatoEmail')?.errors?.['email']" class="error-message">
+      Por favor, insira um endereço de email válido.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contatoCelular">Celular</label>
+    <input id="contatoCelular" type="text" formControlName="contatoCelular" required pattern="\d*" maxlength="11"
+      class="form-control">
+    <div *ngIf="contatoForm.get('contatoCelular')?.errors?.['pattern']" class="error-message">
+      Somente números são permitidos.
+    </div>
+    <div *ngIf="contatoForm.get('contatoCelular')?.errors?.['maxlength']" class="error-message">
+      O celular deve ter no máximo 11 números.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contatoTelefone">Telefone</label>
+    <input id="contatoTelefone" type="text" formControlName="contatoTelefone" pattern="\d*" maxlength="10"
+      class="form-control">
+    <div *ngIf="contatoForm.get('contatoTelefone')?.errors?.['pattern']" class="error-message">
+      Somente números são permitidos.
+    </div>
+    <div *ngIf="contatoForm.get('contatoTelefone')?.errors?.['maxlength']" class="error-message">
+      O telefone deve ter no máximo 10 números.
+    </div>
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit" class="btn btn-primary" [disabled]="!contatoForm.valid">Salvar Contato</button>
+    <button type="button" class="btn btn-secondary" (click)="goBack()">Voltar</button>
+  </div>
+</form>
